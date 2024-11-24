@@ -25,6 +25,13 @@ class LogInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.toolbar.inflateMenu(R.menu.main_menu)
+        binding.toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.exit -> requireActivity().finishAffinity()
+            }
+            true
+        }
         binding.redirectSignInTV.setOnClickListener {
             view
                 .findNavController()

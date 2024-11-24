@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.androidfirebaseauthentication.R
 import com.example.androidfirebaseauthentication.databinding.FragmentEmailBinding
 import com.example.androidfirebaseauthentication.modal.EmailMessage
 import com.example.androidfirebaseauthentication.service.RecyclerAdapter
@@ -25,6 +26,13 @@ class EmailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val email = arguments?.getString("email")
         binding.toolbar.setTitle(email)
+        binding.toolbar.inflateMenu(R.menu.main_menu)
+        binding.toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.exit -> requireActivity().finishAffinity()
+            }
+            true
+        }
         val messages = arrayListOf(
             EmailMessage("first", "one", "12345"),
             EmailMessage("second", "two", "54321")

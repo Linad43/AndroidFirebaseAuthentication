@@ -28,6 +28,13 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = Firebase.auth
+        binding.toolbar.inflateMenu(R.menu.main_menu)
+        binding.toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.exit -> requireActivity().finishAffinity()
+            }
+            true
+        }
         binding.signInBTN.setOnClickListener {
             signUpUser()
         }
