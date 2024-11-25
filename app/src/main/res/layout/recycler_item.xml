@@ -7,28 +7,20 @@
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/titleTV"
+        android:id="@+id/nameUserTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="title"
+        android:text="nameUser"
         android:textSize="28dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textTV"
+        android:id="@+id/numPhoneTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="text"
+        android:text="numPhone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTV" />
-
-    <TextView
-        android:id="@+id/authorTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="author"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/nameUserTV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

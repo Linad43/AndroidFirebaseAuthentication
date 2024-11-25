@@ -6,17 +6,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidfirebaseauthentication.R
-import com.example.androidfirebaseauthentication.modal.EmailMessage
+import com.example.androidfirebaseauthentication.modal.User
 
 class RecyclerAdapter(
-    val messages: ArrayList<EmailMessage>,
+    val users: MutableList<User>,
 ) : RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>() {
     class RecyclerViewHolder(
         itemView: View,
     ) : RecyclerView.ViewHolder(itemView) {
-        val titleTV = itemView.findViewById<TextView>(R.id.titleTV)
-        val messageTV = itemView.findViewById<TextView>(R.id.textTV)
-        val authorTV = itemView.findViewById<TextView>(R.id.authorTV)
+        val nameUserTV = itemView.findViewById<TextView>(R.id.nameUserTV)
+        val numPhoneTV = itemView.findViewById<TextView>(R.id.numPhoneTV)
     }
 
     override fun onCreateViewHolder(
@@ -28,12 +27,11 @@ class RecyclerAdapter(
         return RecyclerViewHolder(itemView)
     }
 
-    override fun getItemCount(): Int = messages.size
+    override fun getItemCount(): Int = users.size
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        val message = messages[position]
-        holder.titleTV.text = message.title
-        holder.messageTV.text = message.message
-        holder.authorTV.text = message.author
+        val user = users[position]
+        holder.nameUserTV.text = user.name
+        holder.numPhoneTV.text = user.numPhone
     }
 }

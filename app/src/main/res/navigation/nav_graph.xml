@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/emailFragment"
-        android:name="com.example.androidfirebaseauthentication.fragments.EmailFragment"
+        android:name="com.example.androidfirebaseauthentication.fragments.UsersFragment"
         android:label="fragment_email"
-        tools:layout="@layout/fragment_email" />
+        tools:layout="@layout/fragment_users" />
 </navigation>

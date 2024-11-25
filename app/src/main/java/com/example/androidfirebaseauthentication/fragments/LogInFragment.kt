@@ -59,7 +59,7 @@ class LogInFragment : Fragment() {
                     ).show()
                     val bundle = Bundle()
                     bundle.putString("email", email)
-                    val fragment = EmailFragment()
+                    val fragment = UsersFragment()
                     fragment.arguments = bundle
                     fragmentManager
                         ?.beginTransaction()
