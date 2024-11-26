@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.androidfirebaseauthentication.R
 import com.example.androidfirebaseauthentication.databinding.FragmentLogInBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -28,7 +29,10 @@ class LogInFragment : Fragment() {
         binding.toolbar.inflateMenu(R.menu.main_menu)
         binding.toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.exit -> requireActivity().finishAffinity()
+                R.id.exit -> {
+                    activity
+                    requireActivity().finishAffinity()
+                }
             }
             true
         }
@@ -59,12 +63,18 @@ class LogInFragment : Fragment() {
                     ).show()
                     val bundle = Bundle()
                     bundle.putString("email", email)
-                    val fragment = UsersFragment()
-                    fragment.arguments = bundle
-                    fragmentManager
-                        ?.beginTransaction()
-                        ?.replace(R.id.container, fragment)
-                        ?.commit()
+                    view
+                        ?.findNavController()
+                        ?.navigate(R.id.action_logInFragment_to_emailFragment, bundle)
+//                    val bundle = Bundle()
+//                    bundle.putString("email", email)
+//                    val fragment = UsersFragment()
+//                    fragment.arguments = bundle
+//                    fragmentManager
+//                        ?.beginTransaction()
+//                        ?.replace(R.id.container, fragment)
+//                        ?.addToBackStack("")
+//                        ?.commit()
                 } else {
                     Toast.makeText(
                         requireContext(),

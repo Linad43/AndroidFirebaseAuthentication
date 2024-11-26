@@ -42,6 +42,7 @@ class UsersFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+//        val email = arguments?.getString("email")
         val email = arguments?.getString("email")
         binding.toolbar.setTitle(email)
         binding.toolbar.inflateMenu(R.menu.main_menu)
